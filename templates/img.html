@@ -1,0 +1,30 @@
+{{ template "_header.html" . }}
+  <section class="section">
+      <div id="img-app" class="container">
+    <h2 class="title">Build an Image Tag</h2>
+    <div class="columns">
+        <div class="column">
+            <div class="field">
+                <label class="label">Your Image URL</label>
+                <div class="control">
+                  <input v-model="url" name="url" class="input" type="text" placeholder="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif" required="required">
+                </div>
+              </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                      <button v-on:click="build" type="submit" class="button is-link">Build!</button>
+                    </div>
+                  </div>
+        </div>
+        <div class="column">
+          <div class="result" v-show="code.length > 0">
+              <p>Copy and paste the text below!</p>
+              <code>${ code }</code>
+              <p>Your image will appear as:</p>
+              <div v-html="code"></div>
+            </div>
+        </div>
+      </div>
+      </div>
+  </section>
+  {{ template "_footer.html" . }}

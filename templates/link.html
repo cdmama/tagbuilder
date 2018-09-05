@@ -1,0 +1,36 @@
+{{ template "_header.html" . }}
+  <section class="section">
+      <div id="link-app" class="container">
+    <h2 class="title">Build a Link Tag</h2>
+    <div class="columns">
+        <div class="column">
+            <div class="field">
+                <label class="label">Your Link URL</label>
+                <div class="control">
+                  <input v-model="url" name="url" class="input" type="text" placeholder="http://www.mywebsite.com" required="required">
+                </div>
+              </div>
+              <div class="field">
+                  <label class="label">Your Link Text</label>
+                  <div class="control">
+                    <input v-model="text" name="text" class="input" type="text" placeholder="My link" required="required">
+                  </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                      <button v-on:click="build" type="submit" class="button is-link">Build!</button>
+                    </div>
+                  </div>
+        </div>
+        <div class="column">
+          <div class="result" v-show="code.length > 0">
+              <p>Copy and paste the text below!</p>
+              <code>${ code }</code>
+              <p>Your link will appear as:</p>
+              <div v-html="code"></div>
+            </div>
+        </div>
+      </div>
+      </div>
+  </section>
+  {{ template "_footer.html" . }}
